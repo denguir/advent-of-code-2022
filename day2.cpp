@@ -1,13 +1,6 @@
 #include <iostream>
 #include <fstream>
-#include <tuple>
 
-
-std::tuple<char, char> split(std::string word) {
-    char word1 = word[0];
-    char word2 = word[2];
-    return std::make_tuple(word1, word2);
-}
 
 int get_shape_score(char play) {
     int score = 0;
@@ -46,8 +39,7 @@ int main() {
     char pA, pB;
     int score = 0;
 
-    while(std::getline(infile, line)) {
-        std::tie(pA, pB) = split(line);
+    while(infile >> pA >> pB) {
         score += get_score(pA, pB);
     }
 
